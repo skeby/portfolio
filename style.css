@@ -58,14 +58,6 @@ a:hover {
   text-decoration-color: rgb(181, 181, 181);
 }
 
-.logo {
-  font-size: 2rem;
-}
-
-.logo:hover {
-  cursor: default;
-}
-
 /* HAMBURGER MENU */
 
 #hamburger-nav {
@@ -75,6 +67,7 @@ a:hover {
 .hamburger-menu {
   position: relative;
   display: inline-block;
+  padding-right: 3rem;
 }
 
 .hamburger-icon {
@@ -456,6 +449,7 @@ footer p {
   }
   #hamburger-nav {
     display: flex;
+    justify-content: flex-end;
   }
   #experience,
   .experience-details-container {
@@ -515,9 +509,6 @@ footer p {
   }
   .experience-sub-title {
     font-size: 1.25rem;
-  }
-  .logo {
-    font-size: 1.5rem;
   }
   .nav-links {
     flex-direction: column;
