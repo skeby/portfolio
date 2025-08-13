@@ -12,7 +12,7 @@ const Hero = () => {
       id="hero"
       initial="initial"
       animate="animate"
-      className="h-[85vh] min-[1500px]:h-[85vh] sm:h-[90vh] md:h-[100vh]"
+      className="h-[85vh] bg-radial from-[#23263a] via-[#23263a] to-[#020618] min-[1500px]:h-[85vh] sm:h-[90vh] md:h-[100vh]"
     >
       {/* <div className="absolute inset-0 z-0 h-full w-full bg-white/15 mix-blend-color"></div> */}
       <div className="max-w-res flex h-full w-full flex-col justify-between px-6 py-16 sm:px-12 sm:py-10">

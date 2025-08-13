@@ -144,4 +144,49 @@ export const projects: Project[] = [
       "Node.js",
     ],
   },
+  {
+    title: "Hebron Bites",
+    description:
+      "A food delivery service for cafeteria vendors at Covenant University",
+    urls: {
+      live: "https://www.hebronbites.com",
+    },
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shad CN",
+      "Framer Motion",
+    ],
+  },
+  {
+    title: "Brillare Inc.",
+    description:
+      "A software automation company. Brillare owns a flagship product called Unoye, which is an ERP designed to help companies optimize resources by automating business internal operations",
+    urls: {
+      live: "https://brillareinc.com/",
+    },
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shad CN",
+      "Framer Motion",
+    ],
+  },
+  {
+    title: "Unoye",
+    description:
+      "An ERP designed to help companies optimize resources by automating business internal operations",
+    urls: {
+      live: "https://unoye.com/",
+    },
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Shad CN",
+      "Framer Motion",
+    ],
+  },
 ];
