@@ -15,8 +15,8 @@ const Hero = () => {
       className="h-[85vh] bg-radial from-[#23263a] via-[#23263a] to-[#020618] min-[1500px]:h-[85vh] sm:h-[90vh] md:h-[100vh]"
     >
       {/* <div className="absolute inset-0 z-0 h-full w-full bg-white/15 mix-blend-color"></div> */}
-      <div className="max-w-res flex h-full w-full flex-col justify-between px-6 py-16 sm:px-12 sm:py-10">
-        <div className="flex w-full justify-between lg:max-w-[1440px]">
+      <div className="max-w-res flex h-full w-full flex-col justify-between px-6 pt-10 pb-16 sm:px-12 sm:py-10">
+        <div className="flex w-full items-center justify-center sm:justify-between lg:max-w-[1440px]">
           <div>
             <Link href="#contact" aria-label="SEND A MESSAGE">
               <motion.button
@@ -28,11 +28,12 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="flex gap-10 text-[#e4ded7] sm:gap-12 md:gap-14 lg:gap-14">
+          <div className="flex h-full gap-10 text-[#e4ded7] sm:gap-12 md:gap-14 lg:gap-14">
             <Link
               href="https://github.com/skeby"
               target="_blank"
               aria-label="View GitHub Profile"
+              className="grid place-items-center"
             >
               <motion.p
                 className="text-[16px] font-bold text-[#e4ded7] md:text-[16px]"
@@ -45,6 +46,7 @@ const Hero = () => {
               href="https://ng.linkedin.com/in/adeyinka-akinsanya-171a4532a"
               target="_blank"
               aria-label="View LinkedIn Profile"
+              className="grid place-items-center"
             >
               <motion.p
                 className="text-[16px] font-bold text-[#e4ded7] md:text-[16px]"
@@ -56,6 +58,7 @@ const Hero = () => {
             <Link
               href="mailto:akinsanyaadeyinka4166@gmail.com"
               aria-label="Send an Email"
+              className="grid place-items-center"
             >
               <motion.p
                 className="text-[16px] font-bold text-[#e4ded7] md:text-[16px]"
