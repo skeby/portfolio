@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/components/misc/providers";
 import { syne } from "@/static";
+import { Analytics } from "@vercel/analytics/next";
 // import { APP_URL } from "@/static";
 
 const APP_URL = "https://skeby.vercel.app";
@@ -84,7 +85,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${syne.className} antialiased`}>
+      <body className={`${syne.className} bg-background font-sans antialiased`}>
+        <Analytics />
         <Providers>{children}</Providers>
       </body>
     </html>
