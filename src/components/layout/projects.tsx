@@ -83,15 +83,15 @@ const ProjectCard = ({ title, description, urls, technologies }: Project) => {
             )}
             {urls.live && (
               <Link
-                href={urls.live}
-                target="_blank"
-                className="flex size-[64px] items-center justify-center rounded-full bg-[#e4ded7]"
-                aria-label="Open GitHub Repo"
                 data-blobity
                 data-blobity-radius="38"
                 data-blobity-offset-x="4"
                 data-blobity-offset-y="4"
                 data-blobity-magnetic="false"
+                href={urls.live}
+                target="_blank"
+                className="flex size-[64px] items-center justify-center rounded-full bg-[#e4ded7]"
+                aria-label="Open GitHub Repo"
               >
                 <FaLink className="lg:text-[28 px] w-9 rounded-full text-[20px] text-black md:w-10 md:text-[24px] lg:w-12" />
               </Link>
