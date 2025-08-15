@@ -7,7 +7,7 @@ import Reviews from "@/components/layout/reviews";
 
 export default function Home() {
   return (
-    <main className="font-sans flex flex-col gap-24 lg:gap-28">
+    <main>
       <Hero />
       <Projects />
       <Reviews />

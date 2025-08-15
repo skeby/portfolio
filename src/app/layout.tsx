@@ -85,7 +85,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${syne.className} bg-background antialiased`}>
+      <body className={`${syne.className} bg-background font-sans antialiased`}>
         <Analytics />
         <Providers>{children}</Providers>
       </body>
