@@ -4,7 +4,7 @@ import { animation, poppins } from "@/static";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import profile from "../../../public/images/profile-2.webp";
+import profile from "../../../public/images/profile-3.webp";
 
 const Hero = () => {
   return (
@@ -16,14 +16,26 @@ const Hero = () => {
     >
       {/* <div className="absolute inset-0 z-0 h-full w-full bg-white/15 mix-blend-color"></div> */}
       <div className="max-w-res flex h-full w-full flex-col justify-between px-6 pt-10 pb-16 sm:px-12 sm:py-10">
-        <div className="flex w-full items-center justify-center sm:justify-between lg:max-w-[1440px]">
-          <div>
+        <div className="flex w-full items-center justify-center gap-3 sm:justify-between lg:max-w-[1440px]">
+          <div className="flex gap-2 sm:gap-4 md:gap-6">
             <Link href="#contact" aria-label="SEND A MESSAGE">
               <motion.button
                 className="hidden rounded-md border-2 border-[#e4ded7] px-4 py-2 text-[14px] font-semibold text-[#e4ded7] sm:block md:text-[16px] lg:block"
                 variants={animation.body}
               >
                 SEND A MESSAGE
+              </motion.button>
+            </Link>
+            <Link
+              target="_blank"
+              href="https://cal.com/adeyinka/website"
+              aria-label="BOOK A CALL"
+            >
+              <motion.button
+                className="hidden rounded-md border-2 bg-[#e4ded7] px-4 py-2 text-[14px] font-semibold text-[#23263a] sm:block md:text-[16px] lg:block"
+                variants={animation.body}
+              >
+                BOOK A CALL
               </motion.button>
             </Link>
           </div>
