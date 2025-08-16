@@ -100,14 +100,16 @@ const Contact = () => {
                   }
                   className="flex items-center gap-4 px-1.5 py-1"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#e4ded7]">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#e4ded7]">
                     <l.icon className="h-6 w-6 text-[#23263a]" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#e4ded7]">
                       {l.title}
                     </h3>
-                    <p className="text-[#e4ded7]/80">{l.description}</p>
+                    <p className="overflow-clip text-[#e4ded7]/80">
+                      {l.description}
+                    </p>
                   </div>
                 </Link>
               ))}
