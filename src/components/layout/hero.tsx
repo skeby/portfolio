@@ -101,7 +101,7 @@ const Hero = () => {
               height={600}
               priority
               alt="Adeyinka's profile"
-              data-blobity-tooltip="Adeyinka Akinsanya"
+              data-blobity-tooltip="Stay Cheesed Up!"
               data-blobity-invert="false"
               className="w-[150px] rounded-[16px] grayscale duration-500 hover:grayscale-0 md:w-[200px] md:rounded-[32px] lg:w-[245px]"
             />
