@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { useEffect } from "react";
-import { useAnimation } from "framer-motion";
+import { useAnimation } from "motion/react";
 import { useInView } from "react-intersection-observer";
 import { animation } from "@/static";
 

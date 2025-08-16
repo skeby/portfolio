@@ -1,10 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { LuMail, LuMapPin, LuPhone, LuSend } from "react-icons/lu";
+import { motion } from "motion/react";
+import { LuMail, LuMapPin, LuPhone } from "react-icons/lu";
 import Link from "next/link";
+import { handleScroll } from "@/lib/utils";
+import {
+  ADEYINKA_CAL_URL,
+  ADEYINKA_EMAIL,
+  ADEYINKA_GITHUB_URL,
+  ADEYINKA_LINKEDIN_URL,
+  ADEYINKA_TELEGRAM_URL,
+} from "@/static";
 
 const Contact = () => {
   const animation = {
@@ -16,14 +22,14 @@ const Contact = () => {
   const links = [
     {
       title: "Email",
-      description: "akinsanyaadeyinka4166@gmail.com",
-      href: "mailto:akinsanyaadeyinka4166@gmail.com",
+      description: ADEYINKA_EMAIL,
+      href: `mailto:${ADEYINKA_EMAIL}`,
       icon: LuMail,
     },
     {
       title: "Schedule a Call",
       description: "Available for consultations",
-      href: "https://cal.com/adeyinka/website",
+      href: ADEYINKA_CAL_URL,
       icon: LuPhone,
     },
     {
@@ -36,15 +42,15 @@ const Contact = () => {
   const connects = [
     {
       title: "GitHub",
-      href: "https://github.com/skeby",
+      href: ADEYINKA_GITHUB_URL,
     },
     {
       title: "LinkedIn",
-      href: "https://ng.linkedin.com/in/adeyinka-akinsanya-171a4532a",
+      href: ADEYINKA_LINKEDIN_URL,
     },
     {
       title: "Telegram",
-      href: "https://t.me/staticusername",
+      href: ADEYINKA_TELEGRAM_URL,
     },
   ];
 
@@ -73,22 +79,35 @@ const Contact = () => {
             variants={animation}
           >
             <div className="flex w-full flex-col justify-between gap-6 lg:flex-row">
-              {links.map((link, index) => (
+              {links.map((l, index) => (
                 <Link
                   key={index}
                   data-blobity-radius="12"
-                  href={link.href || "#"}
-                  target={link.href ? "_blank" : undefined}
+                  href={l.href || "#"}
+                  onClick={
+                    l.href && l.href.trim().startsWith("#")
+                      ? handleScroll
+                      : undefined
+                  }
+                  target={
+                    (l.href &&
+                      (l.href.trim().startsWith("#") ||
+                        l.href.trim().startsWith("/") ||
+                        l.href.trim().startsWith("mailto:"))) ||
+                    !l.href
+                      ? undefined
+                      : "_blank"
+                  }
                   className="flex items-center gap-4 px-1.5 py-1"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#e4ded7]">
-                    <link.icon className="h-6 w-6 text-[#23263a]" />
+                    <l.icon className="h-6 w-6 text-[#23263a]" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-[#e4ded7]">
-                      {link.title}
+                      {l.title}
                     </h3>
-                    <p className="text-[#e4ded7]/80">{link.description}</p>
+                    <p className="text-[#e4ded7]/80">{l.description}</p>
                   </div>
                 </Link>
               ))}
@@ -99,80 +118,29 @@ const Contact = () => {
                 Connect with me
               </h3>
               <div className="flex flex-wrap gap-2 sm:gap-4 md:gap-6">
-                {connects.map((connect, index) => (
+                {connects.map((c, index) => (
                   <Link
                     key={index}
-                    href={connect.href || "#"}
-                    target={connect.href ? "_blank" : undefined}
+                    href={c.href || "#"}
+                    onClick={
+                      c.href.trim().startsWith("#") ? handleScroll : undefined
+                    }
+                    target={
+                      c.href.trim().startsWith("#") ||
+                      c.href.trim().startsWith("/") ||
+                      c.href.trim().startsWith("mailto:")
+                        ? undefined
+                        : "_blank"
+                    }
                     className="rounded-md border-2 border-[#e4ded7] px-6 py-3 font-semibold text-[#e4ded7] uppercase"
                     rel="noreferrer"
                   >
-                    {connect.title}
+                    {c.title}
                   </Link>
                 ))}
               </div>
             </div>
           </motion.div>
-
-          {/* Contact Form */}
-          {/* <motion.div
-            className="rounded-2xl border border-[#e4ded7]/20 bg-[#e4ded7]/5 p-8 backdrop-blur-sm"
-            variants={animation}
-          >
-            <form className="space-y-6">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-2 block font-medium text-[#e4ded7]">
-                    Name
-                  </label>
-                  <Input
-                    className="border-[#e4ded7]/30 bg-[#e4ded7]/10 text-[#e4ded7] placeholder:text-[#e4ded7]/50 focus:border-[#e4ded7]"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div>
-                  <label className="mb-2 block font-medium text-[#e4ded7]">
-                    Email
-                  </label>
-                  <Input
-                    type="email"
-                    className="border-[#e4ded7]/30 bg-[#e4ded7]/10 text-[#e4ded7] placeholder:text-[#e4ded7]/50 focus:border-[#e4ded7]"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-              </div>
-
-              <div>
-                <label className="mb-2 block font-medium text-[#e4ded7]">
-                  Subject
-                </label>
-                <Input
-                  className="border-[#e4ded7]/30 bg-[#e4ded7]/10 text-[#e4ded7] placeholder:text-[#e4ded7]/50 focus:border-[#e4ded7]"
-                  placeholder="Project inquiry"
-                />
-              </div>
-
-              <div>
-                <label className="mb-2 block font-medium text-[#e4ded7]">
-                  Message
-                </label>
-                <Textarea
-                  rows={5}
-                  className="resize-none border-[#e4ded7]/30 bg-[#e4ded7]/10 text-[#e4ded7] placeholder:text-[#e4ded7]/50 focus:border-[#e4ded7]"
-                  placeholder="Tell me about your project..."
-                />
-              </div>
-
-              <motion.button
-                type="submit"
-                variants={animation}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#e4ded7] px-4 py-3 font-semibold text-[#23263a] hover:bg-[#e4ded7]/90"
-              >
-                <LuSend className="h-4 w-4" />
-                Send Message
-              </motion.button>
-            </form>
-          </motion.div> */}
         </div>
       </div>
     </motion.section>

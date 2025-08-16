@@ -1,13 +1,54 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Link from "next/dist/client/link";
-import { LuArrowUp, LuHeart } from "react-icons/lu";
+import { handleScroll } from "@/lib/utils";
+import {
+  ADEYINKA_CAL_URL,
+  ADEYINKA_EMAIL,
+  ADEYINKA_GITHUB_URL,
+  ADEYINKA_LINKEDIN_URL,
+} from "@/static";
+import { motion } from "motion/react";
+import Link from "next/link";
+import { LuArrowUp } from "react-icons/lu";
 
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const links = [
+    {
+      title: "Home",
+      href: "#hero",
+    },
+    {
+      title: "Projects",
+      href: "#projects",
+    },
+    {
+      title: "Contact",
+      href: "#contact",
+    },
+    {
+      title: "Book a Call",
+      href: ADEYINKA_CAL_URL,
+    },
+  ];
+
+  const connects = [
+    {
+      title: "GitHub",
+      href: ADEYINKA_GITHUB_URL,
+    },
+    {
+      title: "LinkedIn",
+      href: ADEYINKA_LINKEDIN_URL,
+    },
+    {
+      title: "Email",
+      href: `mailto:${ADEYINKA_EMAIL}`,
+    },
+  ];
 
   const animation = {
     initial: { opacity: 0, y: 20 },
@@ -23,7 +64,6 @@ const Footer = () => {
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 grid gap-8 md:grid-cols-3">
-          {/* Brand */}
           <motion.div variants={animation}>
             <h3 className="mb-4 text-2xl font-bold text-[#e4ded7]">
               Adeyinka Akinsanya
@@ -40,32 +80,25 @@ const Footer = () => {
               Quick Links
             </h4>
             <div className="space-y-3">
-              <a
-                href="#hero"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-              >
-                Home
-              </a>
-              <a
-                href="#projects"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-              >
-                Projects
-              </a>
-              <a
-                href="#contact"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-              >
-                Contact
-              </a>
-              <a
-                href="https://cal.com/adeyinka/website"
-                target="_blank"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-                rel="noreferrer"
-              >
-                Book a Call
-              </a>
+              {links.map((l, index) => (
+                <Link
+                  key={index}
+                  href={l.href}
+                  onClick={
+                    l.href.trim().startsWith("#") ? handleScroll : undefined
+                  }
+                  target={
+                    l.href.trim().startsWith("#") ||
+                    l.href.trim().startsWith("/") ||
+                    l.href.trim().startsWith("mailto:")
+                      ? undefined
+                      : "_blank"
+                  }
+                  className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
+                >
+                  {l.title}
+                </Link>
+              ))}
             </div>
           </motion.div>
 
@@ -75,42 +108,49 @@ const Footer = () => {
               Connect
             </h4>
             <div className="space-y-3">
-              <a
-                href="https://github.com/skeby"
-                target="_blank"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-                rel="noreferrer"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://ng.linkedin.com/in/adeyinka-akinsanya-171a4532a"
-                target="_blank"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="mailto:akinsanyaadeyinka4166@gmail.com"
-                className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
-              >
-                Email
-              </a>
+              {connects.map((c, index) => (
+                <Link
+                  key={index}
+                  href={c.href}
+                  onClick={
+                    c.href.trim().startsWith("#") ? handleScroll : undefined
+                  }
+                  target={
+                    c.href.trim().startsWith("#") ||
+                    c.href.trim().startsWith("/") ||
+                    c.href.trim().startsWith("mailto:")
+                      ? undefined
+                      : "_blank"
+                  }
+                  className="block text-[#e4ded7]/70 transition-colors duration-300 hover:text-[#e4ded7]"
+                  rel="noreferrer"
+                >
+                  {c.title}
+                </Link>
+              ))}
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Section */}
         <motion.div
-          className="flex flex-col items-center justify-between border-t-2 border-[#e4ded7]/20 pt-8 sm:flex-row"
+          className="flex flex-col justify-between border-t-2 border-[#e4ded7]/20 pt-8 sm:flex-row"
           variants={animation}
         >
-          <div className="mb-4 flex items-center gap-2 text-[#e4ded7]/70 sm:mb-0">
-            Development by{" "}
+          <div className="mb-4 flex flex-wrap items-center gap-2 text-[#e4ded7]/70 sm:mb-0">
+            Coded in{" "}
             <Link
               data-blobity-magnetic="true"
-              href="https://github.com/skeby"
+              href="https://code.visualstudio.com"
+              target="_blank"
+              className="underline underline-offset-2 hover:no-underline"
+            >
+              <span>Visual Studio Code</span>
+            </Link>
+            and developed by{" "}
+            <Link
+              data-blobity-magnetic="true"
+              href={ADEYINKA_GITHUB_URL}
+              target="_blank"
               className="underline underline-offset-2 hover:no-underline"
             >
               <span>Adeyinka Akinsanya</span>

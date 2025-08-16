@@ -1,10 +1,16 @@
 import { Project } from "@/types";
 import { Options as BlobityOptions } from "blobity/lib/Blobity";
-import { Variants } from "framer-motion";
+import { Variants } from "motion/react";
 import { Syne, Poppins } from "next/font/google";
 
 export const APP_NAME = "Adeyinka Akinsanya";
 export const APP_URL = "https://skeby.vercel.app";
+export const ADEYINKA_EMAIL = "akinsanyaadeyinka4166@gmail.com";
+export const ADEYINKA_CAL_URL = "https://cal.com/adeyinka/website";
+export const ADEYINKA_GITHUB_URL = "https://github.com/skeby";
+export const ADEYINKA_LINKEDIN_URL =
+  "https://ng.linkedin.com/in/adeyinka-akinsanya-171a4532a";
+export const ADEYINKA_TELEGRAM_URL = "https://t.me/staticusername";
 
 export const blobityConfig: Partial<BlobityOptions> = {
   licenseKey: "opensource",
