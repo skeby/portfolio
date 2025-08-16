@@ -4,6 +4,7 @@ import Providers from "@/components/misc/providers";
 import { syne } from "@/static";
 import { Analytics } from "@vercel/analytics/next";
 import { APP_URL } from "@/static";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Adeyinka Akinsanya — Software Engineer",
@@ -85,6 +86,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${syne.className} bg-background font-sans antialiased`}>
         <Analytics />
+        <SpeedInsights />
         <Providers>{children}</Providers>
       </body>
     </html>
