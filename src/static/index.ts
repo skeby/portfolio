@@ -195,4 +195,36 @@ export const projects: Project[] = [
       "Framer Motion",
     ],
   },
+  {
+    title: "DevLinks",
+    description: "Link sharing web app for developers",
+    urls: {
+      github: "https://github.com/skeby/devlinks",
+      live: "https://devlinks-skeby.vercel.app/",
+    },
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Ant Design",
+      "Dnd Kit",
+      "Firebase",
+    ],
+  },
+  {
+    title: "Portfolio",
+    description:
+      "A personal portfolio website showcasing my projects and skills",
+    urls: {
+      github: "https://github.com/skeby/portfolio",
+      live: "https://skeby.vercel.app/",
+    },
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Blobity",
+    ],
+  },
 ];
