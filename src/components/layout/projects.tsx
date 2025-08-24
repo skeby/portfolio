@@ -3,7 +3,6 @@
 import { projects } from "@/static";
 import { Project } from "@/types";
 import { motion } from "motion/react";
-import { url } from "inspector";
 import Link from "next/link";
 import { FaGithub, FaLink } from "react-icons/fa6";
 import AnimatedTitle from "../ui/animated-title";
