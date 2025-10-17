@@ -170,7 +170,7 @@ export const projects: Project[] = [
     description:
       "A software automation company. Brillare owns a flagship product called Unoye, which is an ERP designed to help companies optimize resources by automating business internal operations",
     urls: {
-      live: "https://brillareinc.com/",
+      live: "https://www.brillareinc.com/",
     },
     technologies: [
       "Next.js",
@@ -185,7 +185,7 @@ export const projects: Project[] = [
     description:
       "An ERP designed to help companies optimize resources by automating business internal operations",
     urls: {
-      live: "https://unoye.com/",
+      live: "https://www.unoye.com/",
     },
     technologies: [
       "Next.js",
