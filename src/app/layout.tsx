@@ -5,6 +5,7 @@ import { syne } from "@/static";
 import { Analytics } from "@vercel/analytics/next";
 import { APP_URL } from "@/static";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import Snowfall from "@/components/ui/snowfall";
 
 export const metadata: Metadata = {
   title: "Adeyinka Akinsanya — Software Engineer",
@@ -85,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${syne.className} bg-background font-sans antialiased`}>
+        <Snowfall />
         <Analytics />
         <SpeedInsights />
         <Providers>{children}</Providers>

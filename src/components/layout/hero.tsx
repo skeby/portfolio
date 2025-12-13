@@ -10,7 +10,7 @@ import {
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import profile from "../../../public/images/profile-3.webp";
+import profile from "../../../public/images/profile-3-christmas.webp";
 import { handleScroll } from "@/lib/utils";
 
 const Hero = () => {
