@@ -10,10 +10,13 @@ import {
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
-import profile from "../../../public/images/profile-3-christmas.webp";
+import profileChristmas from "../../../public/images/profile-3-christmas.webp";
+import profileNormal from "../../../public/images/profile-3.webp";
 import { handleScroll } from "@/lib/utils";
 
 const Hero = () => {
+  const isDecember = new Date().getMonth() === 11;
+  const profile = isDecember ? profileChristmas : profileNormal;
   return (
     <motion.section
       id="hero"
