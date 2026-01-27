@@ -41,26 +41,25 @@ export const metadata: Metadata = {
     description: "Software Engineer and Frontend Developer",
     url: APP_URL,
     siteName: "skeby.vercel.app",
-    // images: [
-    //   {
-    //     url: "https://user-images.githubusercontent.com/84178696/228620835-e3cc5c9b-72fc-4f54-a628-407ef7b650f5.png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Adeyinka Akinsanya — Software Engineer",
-    //   },
-    // ],
+    images: [
+      {
+        url: "https://firebasestorage.googleapis.com/v0/b/devlinks-skeby.appspot.com/o/users%2FCgs3zjzDzMfkOdPfmBQGDkO2OPW2%2Fprofile.jpg?alt=media&token=c2197f44-4620-49be-acd8-3e35eb5e6a6a",
+        width: 600,
+        height: 600,
+        alt: "Adeyinka Akinsanya — Software Engineer",
+      },
+    ],
     locale: "en-US",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Adeyinka Akinsanya — Software Engineer",
     description: "Software Engineer and Frontend Developer",
     creator: "_skeby",
-    // creatorId: "1243720976552144897",
-    // images: [
-    //   "https://user-images.githubusercontent.com/84178696/228620835-e3cc5c9b-72fc-4f54-a628-407ef7b650f5.png",
-    // ],
+    images: [
+      "https://firebasestorage.googleapis.com/v0/b/devlinks-skeby.appspot.com/o/users%2FCgs3zjzDzMfkOdPfmBQGDkO2OPW2%2Fprofile.jpg?alt=media&token=c2197f44-4620-49be-acd8-3e35eb5e6a6a",
+    ],
   },
   robots: {
     index: true,
