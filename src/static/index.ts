@@ -138,7 +138,8 @@ export const projects: Project[] = [
       "An adaptive learning platform for learning data structure concepts",
     urls: {
       github: "https://github.com/skeby/fyp",
-      live: "https://adaptlearn.vercel.app",
+      // live: "https://adaptlearn.vercel.app",
+      live: "https://learn.adeyinkaakinsanya.com",
     },
     technologies: [
       "Next.js",
@@ -200,7 +201,8 @@ export const projects: Project[] = [
     description: "Link sharing web app for developers",
     urls: {
       github: "https://github.com/skeby/devlinks",
-      live: "https://devlinks-skeby.vercel.app/",
+      // live: "https://devlinks-skeby.vercel.app/",
+      live: "https://links.adeyinkaakinsanya.com",
     },
     technologies: [
       "Next.js",
@@ -217,7 +219,7 @@ export const projects: Project[] = [
       "A personal portfolio website showcasing my projects and skills",
     urls: {
       github: "https://github.com/skeby/portfolio",
-      live: "https://skeby.vercel.app/",
+      live: "https://adeyinkaakinsanya.com",
     },
     technologies: [
       "Next.js",
