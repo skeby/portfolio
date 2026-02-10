@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Adeyinka Akinsanya — Software Engineer",
     description: "Software Engineer and Frontend Developer",
     url: APP_URL,
-    siteName: "skeby.vercel.app",
+    siteName: "adeyinkaakinsanya.com",
     images: [
       {
         url: "https://firebasestorage.googleapis.com/v0/b/devlinks-skeby.appspot.com/o/users%2FCgs3zjzDzMfkOdPfmBQGDkO2OPW2%2Fprofile.jpg?alt=media&token=c2197f44-4620-49be-acd8-3e35eb5e6a6a",
