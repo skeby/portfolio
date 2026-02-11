@@ -137,7 +137,7 @@ export const projects: Project[] = [
     description:
       "An adaptive learning platform for learning data structure concepts",
     urls: {
-      github: "https://github.com/skeby/fyp",
+      // github: "https://github.com/skeby/fyp",
       // live: "https://adaptlearn.vercel.app",
       live: "https://learn.adeyinkaakinsanya.com",
     },
