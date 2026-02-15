@@ -44,7 +44,7 @@ export const animation: { [key: string]: Variants } = {
       scale: 1,
       y: "0em",
       transition: {
-        delay: 6.5,
+        delay: 0.5,
         duration: 1,
         ease: [0.2, 0.65, 0.3, 0.9],
       },
@@ -89,7 +89,7 @@ export const animation: { [key: string]: Variants } = {
       opacity: 1,
       y: "0em",
       transition: {
-        delay: 5.5,
+        delay: 1,
         duration: 1,
         ease: [0.2, 0.65, 0.3, 0.9],
       },
@@ -137,7 +137,7 @@ export const projects: Project[] = [
     description:
       "An adaptive learning platform for learning data structure concepts",
     urls: {
-      // github: "https://github.com/skeby/fyp",
+      github: "https://github.com/skeby/fyp",
       // live: "https://adaptlearn.vercel.app",
       live: "https://learn.adeyinkaakinsanya.com",
     },
