@@ -200,7 +200,7 @@ export const projects: Project[] = [
     title: "DevLinks",
     description: "Link sharing web app for developers",
     urls: {
-      github: "https://github.com/skeby/devlinks",
+      // github: "https://github.com/skeby/devlinks",
       // live: "https://devlinks-skeby.vercel.app/",
       live: "https://links.adeyinkaakinsanya.com",
     },
