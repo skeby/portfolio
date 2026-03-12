@@ -197,12 +197,12 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "DevLinks",
-    description: "Link sharing web app for developers",
+    title: "CheckMeOut",
+    description: "Link sharing web app",
     urls: {
       // github: "https://github.com/skeby/devlinks",
       // live: "https://devlinks-skeby.vercel.app/",
-      live: "https://links.adeyinkaakinsanya.com",
+      live: "https://checkmeout.me",
     },
     technologies: [
       "Next.js",
