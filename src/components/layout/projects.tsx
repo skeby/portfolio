@@ -90,7 +90,7 @@ const ProjectCard = ({ title, description, urls, technologies }: Project) => {
                 href={urls.live}
                 target="_blank"
                 className="flex size-[64px] items-center justify-center rounded-full bg-[#e4ded7]"
-                aria-label="Open GitHub Repo"
+                aria-label="Open Live Site"
               >
                 <FaLink className="lg:text-[28 px] w-9 rounded-full text-[20px] text-black md:w-10 md:text-[24px] lg:w-12" />
               </Link>
