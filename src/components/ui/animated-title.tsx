@@ -31,11 +31,6 @@ export default function AnimatedTitle({
     }
   }, [ctrls, inView]);
 
-  const wordAnimation = {
-    hidden: {},
-    visible: {},
-  };
-
   return (
     <h2 aria-label={text} role="heading" className={className}>
       {text.split(" ").map((word, index) => {
@@ -46,25 +41,15 @@ export default function AnimatedTitle({
             key={index}
             initial="hidden"
             animate={ctrls}
-            variants={wordAnimation}
+            variants={animation.character}
             transition={{
-              delayChildren: index * 0.25,
-              staggerChildren: 0.05,
+              delay: index * 0.25,
+              duration: 1,
+              ease: [0.2, 0.65, 0.3, 0.9],
             }}
-            className={`inline-block whitespace-nowrap ${wordSpace}`}
+            className={`inline-block whitespace-nowrap ${wordSpace} ${charSpace}`}
           >
-            {word.split("").map((character, index) => {
-              return (
-                <motion.span
-                  aria-hidden="true"
-                  key={index}
-                  variants={animation.character}
-                  className={`inline-block ${charSpace}`}
-                >
-                  {character}
-                </motion.span>
-              );
-            })}
+            {word + "\u00A0"}
           </motion.span>
         );
       })}

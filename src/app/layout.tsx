@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Providers from "@/components/misc/providers";
-import { syne } from "@/static";
 import { Analytics } from "@vercel/analytics/next";
 import { APP_URL } from "@/static";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Snowfall from "@/components/ui/snowfall";
+import { Syne } from "next/font/google";
 
 export const metadata: Metadata = {
   title: "Adeyinka Akinsanya — Software Engineer",
@@ -76,6 +76,12 @@ export const metadata: Metadata = {
   },
   category: "technology",
 };
+
+export const syne = Syne({
+  subsets: ["latin"],
+  display: "block",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export default function RootLayout({
   children,

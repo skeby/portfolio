@@ -103,6 +103,9 @@ const Hero = () => {
               width={600}
               height={600}
               priority
+              fetchPriority="high"
+              loading="eager"
+              sizes="(max-width: 768px) 150px, (max-width: 1024px) 200px, 245px"
               alt="Adeyinka's profile"
               data-blobity-tooltip="Stay Cheesed Up!"
               data-blobity-invert="false"

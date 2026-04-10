@@ -1,7 +1,6 @@
 import { Project } from "@/types";
 import { Options as BlobityOptions } from "blobity/lib/Blobity";
 import { Variants } from "motion/react";
-import { Syne, Poppins } from "next/font/google";
 
 export const APP_NAME = "Adeyinka Akinsanya";
 export const APP_URL = "https://adeyinkaakinsanya.com";
@@ -118,18 +117,6 @@ export const animation: { [key: string]: Variants } = {
     },
   },
 };
-
-export const syne = Syne({
-  subsets: ["latin"],
-  display: "block",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-export const poppins = Poppins({
-  subsets: ["latin"],
-  display: "block",
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 export const projects: Project[] = [
   {
