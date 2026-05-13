@@ -6,6 +6,7 @@ import { APP_URL } from "@/static";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Snowfall from "@/components/ui/snowfall";
 import { Syne } from "next/font/google";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Adeyinka Akinsanya — Software Engineer",
@@ -95,6 +96,11 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <Providers>{children}</Providers>
+        <div data-checkmeout-support-widget data-username="skeby"></div>
+        <Script
+          src="https://www.checkmeout.me/embed/widget.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

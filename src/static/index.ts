@@ -184,8 +184,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "CheckMeOut",
-    description: "Link sharing web app",
+    title: "Checkmeout",
+    description: "Your buy me a coffee. Your link in bio. All in one place.",
     urls: {
       // github: "https://github.com/skeby/devlinks",
       // live: "https://devlinks-skeby.vercel.app/",
