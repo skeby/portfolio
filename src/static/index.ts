@@ -19,7 +19,7 @@ export const blobityConfig: Partial<BlobityOptions> = {
   dotColor: "#0e1016",
   invert: true,
   focusableElements:
-    "[data-blobity], a:not([data-no-blobity]), li:not([data-no-blobity]), button:not([data-no-blobity]), button:not([.checkmeout-trigger]), [data-blobity-tooltip]",
+    "[data-blobity]:not(.checkmeout-popup *), a:not([data-no-blobity]):not(.checkmeout-popup *), li:not([data-no-blobity]):not(.checkmeout-popup *), button:not([data-no-blobity]):not(.checkmeout-trigger):not(.checkmeout-popup *), [data-blobity-tooltip]:not(.checkmeout-popup *)",
   font: "'Syne','Source Sans Pro',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
   fontSize: 16,
   fontWeight: 500,
