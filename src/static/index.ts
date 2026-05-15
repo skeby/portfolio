@@ -19,7 +19,7 @@ export const blobityConfig: Partial<BlobityOptions> = {
   dotColor: "#0e1016",
   invert: true,
   focusableElements:
-    "[data-blobity], a:not([data-no-blobity]), li:not([data-no-blobity]), button:not([data-no-blobity]), [data-blobity-tooltip]",
+    "[data-blobity], a:not([data-no-blobity]), li:not([data-no-blobity]), button:not([data-no-blobity]), button:not([.checkmeout-trigger]), [data-blobity-tooltip]",
   font: "'Syne','Source Sans Pro',-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif",
   fontSize: 16,
   fontWeight: 500,
@@ -154,11 +154,11 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "Brillare Inc.",
+    title: "Brillare Inc",
     description:
-      "A software automation company. Brillare owns a flagship product called Unoye, which is an ERP designed to help companies optimize resources by automating business internal operations",
+      "A software automation company. Brillare owns a flagship product called Unoye, which is an ERP designed to help companies optimize resources by automating business internal operations.",
     urls: {
-      live: "https://www.brillareinc.com/",
+      live: "https://www.brillareinc.com",
     },
     technologies: [
       "Next.js",
@@ -171,9 +171,9 @@ export const projects: Project[] = [
   {
     title: "Unoye",
     description:
-      "An ERP designed to help companies optimize resources by automating business internal operations",
+      "An ERP designed to help companies optimize resources by automating business internal operations.",
     urls: {
-      live: "https://www.unoye.com/",
+      live: "https://www.unoye.com",
     },
     technologies: [
       "Next.js",
@@ -181,6 +181,40 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Shad CN",
       "Framer Motion",
+    ],
+  },
+  {
+    title: "P@ssword",
+    description:
+      "An AI-powered password strength checker that uses an XGBoost ML model to determine password strength and recommends improvements.",
+    urls: {
+      live: "https://password.adeyinkaakinsanya.com",
+    },
+    technologies: [
+      "Nuxt.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "ZXCVBN",
+      "scikit-learn",
+      "XGBoost",
+      "Python",
+      "FastAPI",
+      "GROQ AI",
+    ],
+  },
+  {
+    title: "Liveness",
+    description:
+      "Liveness detection for identity verification, inspired by OPay's liveness detection.",
+    urls: {
+      live: "https://liveness.adeyinkaakinsanya.com",
+    },
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Face API (TensorFlow.js)",
     ],
   },
   {

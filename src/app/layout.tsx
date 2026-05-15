@@ -96,8 +96,13 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
         <Providers>{children}</Providers>
-        <div data-checkmeout-support-widget data-username="skeby"></div>
+        <div
+          data-no-blobity
+          data-checkmeout-support-widget
+          data-username="skeby"
+        ></div>
         <Script
+          data-no-blobity
           src="https://www.checkmeout.me/embed/widget.js"
           strategy="afterInteractive"
         />

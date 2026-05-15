@@ -15,7 +15,7 @@ const Providers = ({ children }: { children: ReactNode }) => {
       // Fix deprecated API: Blobity sets overflow: visible on its canvas,
       // which is deprecated for canvas elements. Override to 'clip'.
       const canvas = document.querySelector(
-        'canvas[style*="overflow: visible"]'
+        'canvas[style*="overflow: visible"]',
       ) as HTMLCanvasElement | null;
       if (canvas) {
         canvas.style.overflow = "clip";
