@@ -33,16 +33,30 @@ export const baseLevels = (d: GridData) =>
     return day ? level(day.count) : -1;
   });
 
-const dayFormat = new Intl.DateTimeFormat("en-GB", {
+// Built by hand so months read "Sep", not en-GB's "Sept".
+const weekdayFormat = new Intl.DateTimeFormat("en-US", {
   weekday: "short",
-  day: "numeric",
-  month: "short",
-  year: "numeric",
   timeZone: "UTC",
 });
+const monthShortFormat = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  timeZone: "UTC",
+});
+const toDate = (date: string) => new Date(`${date}T00:00:00Z`);
 
+/** "6 Jul 2026" */
+export const formatDate = (date: string) => {
+  const d = toDate(date);
+  return `${d.getUTCDate()} ${monthShortFormat.format(d)} ${d.getUTCFullYear()}`;
+};
+
+/** "Mon, 6 Jul 2026" */
 export const formatDay = (date: string) =>
-  dayFormat.format(new Date(`${date}T00:00:00Z`));
+  `${weekdayFormat.format(toDate(date))}, ${formatDate(date)}`;
+
+/** "6 Feb 2026 – 11 Sep 2026" */
+export const formatRange = (from: string, to: string) =>
+  `${formatDate(from)} – ${formatDate(to)}`;
 
 export const plural = (n: number, word: string) =>
   `${n.toLocaleString("en-US")} ${word}${n === 1 ? "" : "s"}`;

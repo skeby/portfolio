@@ -6,6 +6,7 @@ import {
   colOf,
   dayAt,
   formatDay,
+  formatRange,
   graphCells,
   GridData,
   plural,
@@ -17,26 +18,43 @@ const monthFormat = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 });
 
-/** Hover or drag across the grid for day/week totals; headline stats below. */
+/**
+ * Default view: the real graph. Hovering or dragging reads out daily and
+ * weekly totals; headline stats sit below.
+ */
 const Stats = ({ data }: { data: GridData }) => {
   const [hover, setHover] = useState(-1);
 
   const stats = useMemo(() => {
     const { days } = data;
     let longest = 0;
+    let longestEnd = -1;
     let run = 0;
-    days.forEach((d) => {
+    days.forEach((d, i) => {
       run = d.count > 0 ? run + 1 : 0;
-      longest = Math.max(longest, run);
+      if (run > longest) {
+        longest = run;
+        longestEnd = i;
+      }
     });
+    const longestRange =
+      longest > 0
+        ? formatRange(
+            days[longestEnd - longest + 1].date,
+            days[longestEnd].date,
+          )
+        : null;
     // Current streak may end yesterday if today has nothing yet.
     let current = 0;
     let i = days.length - 1;
     if (days[i]?.count === 0) i--;
+    const currentEnd = i;
     while (i >= 0 && days[i].count > 0) {
       current++;
       i--;
     }
+    const currentRange =
+      current > 0 ? formatRange(days[i + 1].date, days[currentEnd].date) : null;
     const busiest = days.reduce((a, b) => (b.count > a.count ? b : a));
     const byMonth = new Map<string, number>();
     days.forEach((d) => {
@@ -49,7 +67,9 @@ const Stats = ({ data }: { data: GridData }) => {
     const active = days.filter((d) => d.count > 0).length;
     return {
       longest,
+      longestRange,
       current,
+      currentRange,
       busiest,
       topMonth: monthFormat.format(new Date(`${topMonth}-01T00:00:00Z`)),
       topMonthCount,
@@ -91,15 +111,28 @@ const Stats = ({ data }: { data: GridData }) => {
                 ? `${formatDay(hoveredDay.date)} · ${plural(hoveredDay.count, "contribution")} · week total ${weekTotal(weekOf(hover))}`
                 : "Hover or drag across the grid for daily and weekly totals."}
             </span>
+            <div className="b-ghlegend" aria-hidden="true">
+              <span>Less</span>
+              {[0, 1, 2, 3, 4].map((l) => (
+                <i key={l} style={{ background: `var(--g${l})` }} />
+              ))}
+              <span>More</span>
+            </div>
           </div>
           <div className="b-ghstats">
             <div className="b-ghstat">
               <b>{plural(stats.longest, "day")}</b>
-              <span>Longest streak</span>
+              <span>
+                Longest streak
+                {stats.longestRange && ` · ${stats.longestRange}`}
+              </span>
             </div>
             <div className="b-ghstat">
               <b>{plural(stats.current, "day")}</b>
-              <span>Current streak</span>
+              <span>
+                Current streak
+                {stats.currentRange && ` · ${stats.currentRange}`}
+              </span>
             </div>
             <div className="b-ghstat">
               <b>{stats.busiest.count}</b>

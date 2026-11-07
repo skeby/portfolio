@@ -2,10 +2,9 @@
 
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useState } from "react";
-import Grid from "./grid";
 import Life from "./life";
 import Ripple from "./ripple";
-import { graphCells, GridData } from "./shared";
+import { GridData } from "./shared";
 import Snake from "./snake";
 import Stats from "./stats";
 
@@ -18,19 +17,8 @@ const MODES = [
   { id: "life", label: "Life" },
   { id: "snake", label: "Snake" },
   { id: "ripple", label: "Ripple" },
-  { id: "stats", label: "Stats" },
 ] as const;
 type Mode = (typeof MODES)[number]["id"];
-
-const Legend = () => (
-  <div className="b-ghlegend" aria-hidden="true">
-    <span>Less</span>
-    {[0, 1, 2, 3, 4].map((l) => (
-      <i key={l} style={{ background: `var(--g${l})` }} />
-    ))}
-    <span>More</span>
-  </div>
-);
 
 const Playground = ({ data }: { data: GridData }) => {
   const [mode, setMode] = useState<Mode>("graph");
@@ -72,18 +60,10 @@ const Playground = ({ data }: { data: GridData }) => {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.25, ease: [0.2, 0.65, 0.3, 0.9] }}
           >
-            {mode === "graph" && (
-              <Grid
-                data={data}
-                cells={graphCells(data)}
-                label={`${data.total.toLocaleString("en-US")} GitHub contributions in the last year`}
-                footer={<Legend />}
-              />
-            )}
+            {mode === "graph" && <Stats data={data} />}
             {mode === "life" && <Life data={data} />}
             {mode === "snake" && <Snake data={data} />}
             {mode === "ripple" && <Ripple data={data} />}
-            {mode === "stats" && <Stats data={data} />}
           </motion.div>
         </AnimatePresence>
       </div>
