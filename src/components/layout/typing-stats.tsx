@@ -1,8 +1,13 @@
 import { cn } from "@/lib/utils";
 import { MONKEYTYPE_PROFILE_URL, MONKEYTYPE_USERNAME } from "@/static";
 
-const ONE_HOUR = 60 * 60;
-const ONE_DAY = ONE_HOUR * 24;
+/*
+ * Refresh windows, inside Monkeytype's limits (profile: 100 requests/hour,
+ * last result: 60/hour, 30/minute overall). The server caches each response,
+ * so these cap our requests no matter how many people visit.
+ */
+const PROFILE_REFRESH = 60; // seconds → at most 60 requests/hour
+const LATEST_REFRESH = 120; // seconds → at most 30 requests/hour
 
 type Run = { wpm: number; acc: number; consistency?: number };
 type Profile = {
@@ -14,14 +19,14 @@ type Profile = {
 };
 
 /**
- * Public Monkeytype profile (no key needed while the profile is public),
- * cached and refreshed once a day. API limit is 30 requests a minute.
+ * Public Monkeytype profile (no key needed while the profile is public):
+ * personal bests, totals and leaderboard rank. Refreshed every minute.
  */
 async function getProfile(): Promise<Profile | null> {
   try {
     const res = await fetch(
       `https://api.monkeytype.com/users/${MONKEYTYPE_USERNAME}/profile`,
-      { next: { revalidate: ONE_DAY } },
+      { next: { revalidate: PROFILE_REFRESH } },
     );
     if (!res.ok) return null;
     const json: { data?: Profile } = await res.json();
@@ -50,7 +55,7 @@ async function getLatestResult(): Promise<Result | null> {
   try {
     const res = await fetch("https://api.monkeytype.com/results/last", {
       headers: { Authorization: `ApeKey ${key}` },
-      next: { revalidate: ONE_HOUR },
+      next: { revalidate: LATEST_REFRESH },
     });
     if (!res.ok) return null;
     const json: { data?: Result } = await res.json();

@@ -1,20 +1,25 @@
 "use client";
 
+import { TOUCH_QUERY, useMediaQuery } from "@/lib/use-media-query";
 import { PointerEvent, useRef, useState } from "react";
-import Grid, { cellIndexAt } from "./grid";
-import { colOf, graphCells, GridData, rowOf } from "./shared";
+import Grid, { cellElement, cellIndexAt } from "./grid";
+import { graphCells, GridData } from "./shared";
 
 const EASE = "cubic-bezier(0.2, 0.65, 0.3, 0.9)";
 
 /**
- * Tactile mode: hovering ripples nearby squares, clicking sends a wave across
- * the whole year, dragging paints squares until "Clear".
+ * Tactile mode: hovering ripples nearby squares, clicking or tapping sends a
+ * wave across the whole year, dragging (mouse or finger) paints squares until
+ * "Clear". Waves spread by on-screen distance, so they also read correctly
+ * when the year is stacked into rows on phones.
  */
 const Ripple = ({ data }: { data: GridData }) => {
   const gridRef = useRef<HTMLDivElement>(null);
+  const touch = useMediaQuery(TOUCH_QUERY);
   const lastHover = useRef(-1);
   const painting = useRef(false);
   const moved = useRef(false);
+  const downAt = useRef(-1);
   const [painted, setPainted] = useState<Set<number>>(new Set());
 
   const pulse = (
@@ -27,13 +32,21 @@ const Ripple = ({ data }: { data: GridData }) => {
     if (!grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches)
       return;
     const glow = getComputedStyle(grid).getPropertyValue("--g4").trim();
-    const oc = colOf(origin);
-    const or = rowOf(origin);
-    Array.from(grid.children).forEach((el, k) => {
-      const d = Math.hypot(colOf(k) - oc, rowOf(k) - or);
-      if (d > reach || el.classList.contains("pad")) return;
+    const originEl = cellElement(grid, origin);
+    if (!originEl) return;
+    const o = originEl.getBoundingClientRect();
+    const pitch = o.width + 3;
+    const ox = o.left + o.width / 2;
+    const oy = o.top + o.height / 2;
+    grid.querySelectorAll<HTMLElement>("[data-i]").forEach((el) => {
+      if (el.classList.contains("pad")) return;
+      const r = el.getBoundingClientRect();
+      const d =
+        Math.hypot(r.left + r.width / 2 - ox, r.top + r.height / 2 - oy) /
+        pitch;
+      if (d > reach) return;
       const falloff = 1 - d / (reach + 1);
-      (el as HTMLElement).animate(
+      el.animate(
         [
           { transform: "scale(1)" },
           {
@@ -56,8 +69,12 @@ const Ripple = ({ data }: { data: GridData }) => {
   const onPointerMove = (e: PointerEvent) => {
     const k = cellIndexAt(e.clientX, e.clientY);
     if (painting.current) {
-      moved.current = true;
-      paint(k);
+      // A drag starts once the pointer leaves the square it pressed.
+      if (k !== downAt.current || moved.current) {
+        if (!moved.current) paint(downAt.current);
+        moved.current = true;
+        paint(k);
+      }
       return;
     }
     if (k >= 0 && k !== lastHover.current && e.pointerType === "mouse") {
@@ -67,9 +84,11 @@ const Ripple = ({ data }: { data: GridData }) => {
   };
 
   const onPointerDown = (e: PointerEvent) => {
-    if (e.pointerType !== "mouse") return;
+    // Stop the drag from selecting text (month labels, the hint line).
+    if (e.pointerType === "mouse") e.preventDefault();
     painting.current = true;
     moved.current = false;
+    downAt.current = cellIndexAt(e.clientX, e.clientY);
   };
 
   const onPointerUp = (e: PointerEvent) => {
@@ -94,13 +113,20 @@ const Ripple = ({ data }: { data: GridData }) => {
       onPointerMove={onPointerMove}
       onPointerDown={onPointerDown}
       onPointerUp={onPointerUp}
+      onPointerCancel={() => {
+        painting.current = false;
+      }}
       onPointerLeave={() => {
         painting.current = false;
         lastHover.current = -1;
       }}
       footer={
         <div className="b-ghbar">
-          <span>Hover to ripple, click for a wave, drag to draw.</span>
+          <span>
+            {touch
+              ? "Tap for a wave, drag to draw."
+              : "Hover to ripple, click for a wave, drag to draw."}
+          </span>
           <div className="b-ghbtns">
             <button
               type="button"

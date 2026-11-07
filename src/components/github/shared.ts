@@ -50,6 +50,10 @@ export const formatDate = (date: string) => {
   return `${d.getUTCDate()} ${monthShortFormat.format(d)} ${d.getUTCFullYear()}`;
 };
 
+/** "Jul" */
+export const monthLabel = (date: string) =>
+  monthShortFormat.format(toDate(date));
+
 /** "Mon, 6 Jul 2026" */
 export const formatDay = (date: string) =>
   `${weekdayFormat.format(toDate(date))}, ${formatDate(date)}`;

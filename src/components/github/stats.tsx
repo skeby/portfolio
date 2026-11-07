@@ -102,14 +102,15 @@ const Stats = ({ data }: { data: GridData }) => {
       label="Contribution grid with weekly totals"
       onPointerMove={track}
       onPointerDown={track}
-      onPointerLeave={() => setHover(-1)}
+      // On touch the pointer "leaves" on lift; keep the tapped day showing.
+      onPointerLeave={(e) => e.pointerType === "mouse" && setHover(-1)}
       footer={
         <>
           <div className="b-ghbar">
             <span aria-live="polite">
               {hoveredDay
                 ? `${formatDay(hoveredDay.date)} · ${plural(hoveredDay.count, "contribution")} · week total ${weekTotal(weekOf(hover))}`
-                : "Hover or drag across the grid for daily and weekly totals."}
+                : "Hover, drag or tap the grid for daily and weekly totals."}
             </span>
             <div className="b-ghlegend" aria-hidden="true">
               <span>Less</span>
