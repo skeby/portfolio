@@ -1,4 +1,4 @@
-import { Project } from "@/types";
+import { Palette, PaletteId, Project } from "@/types";
 import { Options as BlobityOptions } from "blobity/lib/Blobity";
 import { Variants } from "motion/react";
 
@@ -10,12 +10,15 @@ export const ADEYINKA_GITHUB_URL = "https://github.com/skeby";
 export const ADEYINKA_LINKEDIN_URL =
   "https://ng.linkedin.com/in/adeyinka-akinsanya-171a4532a";
 export const ADEYINKA_TELEGRAM_URL = "https://t.me/staticusername";
+export const ADEYINKA_RESUME_URL =
+  "https://drive.google.com/file/d/1E0RnAwpz2KiZWyKcYoAuBJgSlXOSIVZv/preview";
+export const GITHUB_USERNAME = "skeby";
 
 export const blobityConfig: Partial<BlobityOptions> = {
   licenseKey: "opensource",
   focusableElementsOffsetX: 5,
   focusableElementsOffsetY: 5,
-  color: "#e4ded7",
+  color: "#e4e4e4",
   dotColor: "#0e1016",
   invert: true,
   focusableElements:
@@ -120,134 +123,93 @@ export const animation: { [key: string]: Variants } = {
 
 export const projects: Project[] = [
   {
-    title: "AdaptLearn",
-    description:
-      "An adaptive learning platform for learning data structure concepts",
-    urls: {
-      github: "https://github.com/skeby/fyp",
-      // live: "https://adaptlearn.vercel.app",
-      live: "https://learn.adeyinkaakinsanya.com",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Python",
-      "Flask",
-      "Express",
-      "Node.js",
-    ],
+    title: "Checkmeout",
+    description: "Your buy me a coffee. Your link in bio. All in one place.",
+    live: "https://checkmeout.me",
   },
   {
-    title: "Hebron Bites",
+    title: "AstroPay",
     description:
-      "A food delivery service for cafeteria vendors at Covenant University",
-    urls: {
-      live: "https://www.hebronbites.com",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Shad CN",
-      "Framer Motion",
-    ],
+      "Spend-limited wallets for AI agents. Fund a wallet, set budgets, connect any MCP agent, and approve every payment it makes.",
+    live: "https://astropay.checkmeout.me",
+  },
+  {
+    title: "Portfolio",
+    description: "A personal portfolio showcasing projects and skills.",
+    live: "https://adeyinkaakinsanya.com",
+    github: "https://github.com/skeby/portfolio",
+  },
+  {
+    title: "AdaptLearn",
+    description:
+      "An adaptive learning platform for learning data structure concepts.",
+    live: "https://learn.adeyinkaakinsanya.com",
+    github: "https://github.com/skeby/fyp",
   },
   {
     title: "Brillare Inc",
     description:
-      "A software automation company. Brillare owns a flagship product called Unoye, which is an ERP designed to help companies optimize resources by automating business internal operations.",
-    urls: {
-      live: "https://www.brillareinc.com",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Shad CN",
-      "Framer Motion",
-    ],
+      "Site for a software automation company whose flagship product, Unoye, automates internal business operations.",
+    live: "https://www.brillareinc.com",
   },
   {
     title: "Unoye",
     description:
-      "An ERP designed to help companies optimize resources by automating business internal operations.",
-    urls: {
-      live: "https://www.unoye.com",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Shad CN",
-      "Framer Motion",
-    ],
+      "An ERP that helps companies optimize resources by automating internal operations.",
+    live: "https://www.unoye.com",
   },
   {
     title: "P@ssword",
     description:
-      "An AI-powered password strength checker that uses an XGBoost ML model to determine password strength and recommends improvements.",
-    urls: {
-      live: "https://password.adeyinkaakinsanya.com",
-    },
-    technologies: [
-      "Nuxt.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "ZXCVBN",
-      "scikit-learn",
-      "XGBoost",
-      "Python",
-      "FastAPI",
-      "GROQ AI",
-    ],
+      "An AI-powered password strength checker that uses an XGBoost model to rate passwords and recommend improvements.",
+    live: "https://password.adeyinkaakinsanya.com",
   },
   {
     title: "Liveness",
     description:
-      "Liveness detection for identity verification, inspired by OPay's liveness detection.",
-    urls: {
-      live: "https://liveness.adeyinkaakinsanya.com",
-    },
-    technologies: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Face API (TensorFlow.js)",
-    ],
-  },
-  {
-    title: "Checkmeout",
-    description: "Your buy me a coffee. Your link in bio. All in one place.",
-    urls: {
-      // github: "https://github.com/skeby/devlinks",
-      // live: "https://devlinks-skeby.vercel.app/",
-      live: "https://checkmeout.me",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Ant Design",
-      "Dnd Kit",
-      "Firebase",
-    ],
-  },
-  {
-    title: "Portfolio",
-    description:
-      "A personal portfolio website showcasing my projects and skills",
-    urls: {
-      github: "https://github.com/skeby/portfolio",
-      live: "https://adeyinkaakinsanya.com",
-    },
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Blobity",
-    ],
+      "Liveness detection for identity verification, inspired by OPay's liveness check.",
+    live: "https://liveness.adeyinkaakinsanya.com",
   },
 ];
+
+/** Skills from the résumé, shown in the scrolling ticker. */
+export const skills = [
+  "TypeScript",
+  "JavaScript",
+  "Python",
+  "HTML",
+  "CSS",
+  "React",
+  "Next.js",
+  "Vue.js",
+  "Nuxt.js",
+  "Express.js",
+  "Flask",
+  "Redux Toolkit",
+  "TanStack Query",
+  "Tailwind CSS",
+  "ShadCN",
+  "Framer Motion",
+  "PostgreSQL",
+  "MongoDB",
+  "Docker",
+  "AWS",
+  "GCP",
+  "Git",
+  "Jest",
+  "Vitest",
+  "Figma",
+];
+
+/**
+ * Colour palettes visitors can switch between from the navbar.
+ * Tokens live in app/globals.css under :root[data-palette="…"].
+ * `swatch` is the two colours shown in the switcher dot.
+ */
+export const palettes: Palette[] = [
+  { id: "black", name: "Black", swatch: ["#000000", "#E4E4E4"] },
+  { id: "charcoal", name: "Charcoal", swatch: ["#161618", "#8E8E93"] },
+  { id: "hint", name: "Black with blue", swatch: ["#000000", "#6F95FF"] },
+];
+export const DEFAULT_PALETTE: PaletteId = "black";
+export const PALETTE_STORAGE_KEY = "palette";

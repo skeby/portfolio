@@ -1,69 +1,38 @@
-"use client";
+import { ADEYINKA_GITHUB_URL, ADEYINKA_RESUME_URL } from "@/static";
+import PaletteSwitcher from "@/components/misc/palette-switcher";
+import Image from "next/image";
+import logo from "../../../public/android-chrome-192x192.png";
 
-import { handleScroll } from "@/lib/utils";
-import Link from "next/link";
-import { FaFilePdf } from "react-icons/fa6";
-
-const NavBar = () => {
+const Header = () => {
   return (
-    <nav className="fixed right-0 bottom-10 left-0 z-50 mx-auto my-0 flex w-[306px] items-center justify-center gap-1 rounded-lg bg-[#07070a]/90 px-1 py-1 text-[#e4ded7] backdrop-blur-md sm:w-[383.3px] md:p-2 lg:w-[391.3px]">
-      <a
-        href="https://drive.google.com/file/d/1E0RnAwpz2KiZWyKcYoAuBJgSlXOSIVZv/preview"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Open my résumé"
-        data-blobity-tooltip="View Résumé"
-        data-blobity-magnetic="false"
-      >
-        <span className="inline-flex items-center justify-center px-2 py-2 sm:px-4 md:py-1">
-          <FaFilePdf size={20} className="text-[#e4ded7]" aria-hidden="true" />
-        </span>
-      </a>
-
-      <Link
-        href="#hero"
-        data-blobity-magnetic="false"
-        onClick={handleScroll}
-        aria-label="Scroll to Home"
-      >
-        <h4 className="rounded px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:px-4 md:py-1">
-          Home
-        </h4>
-      </Link>
-      <Link
-        href="#projects"
-        data-blobity-magnetic="false"
-        onClick={handleScroll}
-        aria-label="Scroll to Projects"
-      >
-        <h4 className="rounded px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:px-4 md:py-1">
-          Projects
-        </h4>
-      </Link>
-
-      <Link
-        href="#about"
-        data-blobity-magnetic="false"
-        onClick={handleScroll}
-        aria-label="Scroll to About Section"
-      >
-        <h4 className="rounded px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:px-4 md:py-1">
-          About
-        </h4>
-      </Link>
-
-      <Link
-        href="#contact"
-        data-blobity-magnetic="false"
-        onClick={handleScroll}
-        aria-label="Scroll to Contact"
-      >
-        <h4 className="rounded px-2 py-2 text-[12px] sm:px-4 sm:text-[14px] md:px-4 md:py-1">
-          Contact
-        </h4>
-      </Link>
-    </nav>
+    <div className="wrap">
+      <nav className="b-nav" aria-label="Main">
+        <a href="#top" className="b-mark" aria-label="Adeyinka, back to top">
+          <Image src={logo} alt="" width={40} height={40} priority />
+          adeyinka<span className="b-dot">.</span>
+        </a>
+        <div className="b-links">
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <a
+            href={ADEYINKA_GITHUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          <a
+            href={ADEYINKA_RESUME_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Résumé
+          </a>
+        </div>
+        <PaletteSwitcher />
+      </nav>
+    </div>
   );
 };
 
-export default NavBar;
+export default Header;

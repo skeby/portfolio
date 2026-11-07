@@ -1,11 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Providers from "@/components/misc/providers";
 import { Analytics } from "@vercel/analytics/next";
-import { APP_URL } from "@/static";
+import {
+  APP_URL,
+  DEFAULT_PALETTE,
+  PALETTE_STORAGE_KEY,
+  palettes,
+} from "@/static";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Snowfall from "@/components/ui/snowfall";
-import { Syne } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -78,11 +83,20 @@ export const metadata: Metadata = {
   category: "technology",
 };
 
-export const syne = Syne({
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  colorScheme: "dark",
+};
+
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  display: "block",
-  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-bricolage",
+  axes: ["opsz"],
 });
+
+// Applies the saved palette before first paint so there is no flash.
+const paletteScript = `try{var p=localStorage.getItem(${JSON.stringify(PALETTE_STORAGE_KEY)});if(${JSON.stringify(palettes.map((p) => p.id))}.indexOf(p)>-1)document.documentElement.dataset.palette=p}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -90,8 +104,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${syne.className} bg-background font-sans antialiased`}>
+    <html
+      lang="en"
+      data-palette={DEFAULT_PALETTE}
+      className={bricolage.variable}
+      suppressHydrationWarning
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: paletteScript }} />
+      </head>
+      <body className="antialiased">
         <Snowfall />
         <Analytics />
         <SpeedInsights />
