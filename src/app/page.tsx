@@ -4,6 +4,7 @@ import GitHubActivity from "@/components/layout/github-activity";
 import Header from "@/components/layout/header";
 import Hero from "@/components/layout/hero";
 import Projects from "@/components/layout/projects";
+import TypingStats from "@/components/layout/typing-stats";
 import Marquee from "@/components/ui/marquee";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Marquee />
       <Projects />
       <GitHubActivity />
+      <TypingStats />
       <Contact />
       <Footer />
     </main>

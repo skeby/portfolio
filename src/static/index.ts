@@ -13,6 +13,8 @@ export const ADEYINKA_TELEGRAM_URL = "https://t.me/staticusername";
 export const ADEYINKA_RESUME_URL =
   "https://drive.google.com/file/d/1E0RnAwpz2KiZWyKcYoAuBJgSlXOSIVZv/preview";
 export const GITHUB_USERNAME = "skeby";
+export const MONKEYTYPE_USERNAME = "skeby";
+export const MONKEYTYPE_PROFILE_URL = `https://monkeytype.com/profile/${MONKEYTYPE_USERNAME}`;
 
 export const blobityConfig: Partial<BlobityOptions> = {
   licenseKey: "opensource",

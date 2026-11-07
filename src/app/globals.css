@@ -977,6 +977,68 @@ body {
     margin: 0 4px;
   }
 
+  /* ---------- Typing (reuses the GitHub card and stat tiles) ---------- */
+  .b-typetop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 8px;
+  }
+  .b-typeunit {
+    margin-left: 6px;
+    font-size: 0.4em;
+    letter-spacing: 0;
+    color: var(--dim);
+  }
+  .b-typerank {
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: right;
+    color: var(--dim);
+  }
+  .b-mtlink {
+    display: inline-grid;
+    line-height: 1;
+    align-self: flex-end;
+  }
+  .b-mtsee {
+    padding-left: 0.2em;
+    margin-bottom: 3px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--dim);
+    transition: color 0.2s;
+  }
+  .b-mtword {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    border-bottom: 2px solid var(--soft);
+    padding-bottom: 3px;
+    transition: border-color 0.2s;
+  }
+  .b-mtlink:hover .b-mtword {
+    border-color: var(--hint);
+  }
+  .b-mtlink:hover .b-mtsee {
+    color: var(--fg);
+  }
+  .b-typestats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  @media (max-width: 640px) {
+    .b-typerank {
+      text-align: left;
+    }
+    .b-ghstats,
+    .b-typestats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   /* ---------- Contact ---------- */
   .b-contact {
     background: var(--bg);
