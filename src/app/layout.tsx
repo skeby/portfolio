@@ -14,6 +14,8 @@ import { Bricolage_Grotesque } from "next/font/google";
 import Script from "next/script";
 
 export const metadata: Metadata = {
+  // Makes the generated preview image URL absolute (WhatsApp/X need that).
+  metadataBase: new URL(APP_URL),
   title: "Adeyinka Akinsanya — Software Engineer",
   description: "Software Engineer and Frontend Developer",
   generator: "nextjs",
@@ -47,25 +49,15 @@ export const metadata: Metadata = {
     description: "Software Engineer and Frontend Developer",
     url: APP_URL,
     siteName: "adeyinkaakinsanya.com",
-    images: [
-      {
-        url: "https://firebasestorage.googleapis.com/v0/b/devlinks-skeby.appspot.com/o/users%2FCgs3zjzDzMfkOdPfmBQGDkO2OPW2%2Fprofile.jpg?alt=media&token=c2197f44-4620-49be-acd8-3e35eb5e6a6a",
-        width: 600,
-        height: 600,
-        alt: "Adeyinka Akinsanya — Software Engineer",
-      },
-    ],
     locale: "en-US",
     type: "website",
   },
   twitter: {
-    card: "summary",
+    // Full-width preview; the image comes from app/opengraph-image.tsx.
+    card: "summary_large_image",
     title: "Adeyinka Akinsanya — Software Engineer",
     description: "Software Engineer and Frontend Developer",
     creator: "_skeby",
-    images: [
-      "https://firebasestorage.googleapis.com/v0/b/devlinks-skeby.appspot.com/o/users%2FCgs3zjzDzMfkOdPfmBQGDkO2OPW2%2Fprofile.jpg?alt=media&token=c2197f44-4620-49be-acd8-3e35eb5e6a6a",
-    ],
   },
   robots: {
     index: true,
