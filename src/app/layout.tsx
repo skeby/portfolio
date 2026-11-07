@@ -7,6 +7,7 @@ import {
   DEFAULT_PALETTE,
   PALETTE_STORAGE_KEY,
   palettes,
+  SITE_DESCRIPTION,
 } from "@/static";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Snowfall from "@/components/ui/snowfall";
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   // Makes the generated preview image URL absolute (WhatsApp/X need that).
   metadataBase: new URL(APP_URL),
   title: "Adeyinka Akinsanya — Software Engineer",
-  description: "Software Engineer and Frontend Developer",
+  description: SITE_DESCRIPTION,
   generator: "nextjs",
   applicationName: "Adeyinka Akinsanya",
   keywords: [
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Adeyinka Akinsanya — Software Engineer",
-    description: "Software Engineer and Frontend Developer",
+    description: SITE_DESCRIPTION,
     url: APP_URL,
     siteName: "adeyinkaakinsanya.com",
     locale: "en-US",
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     // Full-width preview; the image comes from app/opengraph-image.tsx.
     card: "summary_large_image",
     title: "Adeyinka Akinsanya — Software Engineer",
-    description: "Software Engineer and Frontend Developer",
+    description: SITE_DESCRIPTION,
     creator: "_skeby",
   },
   robots: {

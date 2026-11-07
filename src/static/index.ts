@@ -3,7 +3,11 @@ import { Options as BlobityOptions } from "blobity/lib/Blobity";
 import { Variants } from "motion/react";
 
 export const APP_NAME = "Adeyinka Akinsanya";
-export const APP_URL = "https://adeyinkaakinsanya.com";
+// The primary domain on Vercel (the bare domain redirects here). Link previews
+// must point straight at it: WhatsApp won't follow a redirect to the image.
+export const APP_URL = "https://www.adeyinkaakinsanya.com";
+export const SITE_DESCRIPTION =
+  "Software engineer and frontend developer, currently available for work. Projects include Checkmeout, AstroPay and AdaptLearn.";
 export const ADEYINKA_EMAIL = "akinsanyaadeyinka4166@gmail.com";
 export const ADEYINKA_CAL_URL = "https://cal.com/adeyinka/website";
 export const ADEYINKA_GITHUB_URL = "https://github.com/skeby";

@@ -1,4 +1,3 @@
-import { skills } from "@/static";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
@@ -33,8 +32,6 @@ export default async function OpengraphImage() {
     asset("photo.jpg"),
     readFile(join(process.cwd(), "public/android-chrome-192x192.png")),
   ]);
-
-  const ticker = skills.slice(0, 12).join("  /  ").toUpperCase();
 
   return new ImageResponse(
     (
@@ -137,24 +134,6 @@ export default async function OpengraphImage() {
               AVAILABLE FOR WORK
             </div>
           </div>
-        </div>
-
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            height: 74,
-            padding: "0 40px",
-            background: "#0B0B0B",
-            borderTop: `4px solid ${EDGE}`,
-            fontSize: 26,
-            fontWeight: 800,
-            letterSpacing: 0.5,
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-          }}
-        >
-          {ticker}
         </div>
       </div>
     ),
